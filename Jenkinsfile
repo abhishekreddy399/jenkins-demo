@@ -5,25 +5,21 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out source code'
+                echo 'Pulling source code from GitHub'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building the application'
+                echo 'Building website'
+                sh 'ls -l'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application'
+                echo 'Testing website'
+                sh 'grep "Jenkins CI" index.html'
             }
         }
     }
